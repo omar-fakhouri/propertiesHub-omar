@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PropertiesHub - real Estate store</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/addProperty.css" rel="stylesheet">
+
+
+    <script src="js/main2.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+                <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+                    <div class="icon p-2 me-2">
+                      <img class="img-fluid" src="img/qwe.png" alt="Icon" style="width: 40px; height: 40px;">
+                    </div>
+                    <h1 class="m-0 text-primary">PropertiesHub</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link ">Home</a>
+                        <a href="about.html" class="nav-item nav-link ">About us</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="profile.html" class="nav-item nav-link" id="profileLink">Profile</a>
+                        <a href="propertiesList.html" class="nav-item nav-link" id="favoritesLink">Favorites</a>
+                    </div>
+                    <a href="addProperty.html" class="btn btn-primary px-3 d-none d-lg-flex" id="add-Property">Add Property</a>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+
+        <br>
+        <br><br>
+        <script>
+            if(localStorage.getItem("id") == null){
+                document.getElementById("profileLink").innerText = "logIn";
+                document.getElementById("favoritesLink").innerText = "Create Acount";
+                document.getElementById("profileLink").href = "signIn.html";
+                document.getElementById("favoritesLink").href = "signUp.html";
+                document.getElementById("add-Property").removeAttribute('href');
+            }
+        </script>
+
+        <!-- Header Start -->
+        <div class="container-fluid header bg-white p-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4">Add a property</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- add property form Start -->
+        <div class="container-fluid  mb-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: rgba(0, 255, 255, 0.562);  padding: 35px; border-radius: 15px 15px 15px 15px;">
+            <div class="container" style="width: 100%;">
+                <h5>Fill your real estate information:</h5>
+                <hr>
+                <br>
+                <form id="addProperty">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="saleOrRent">Sale Type:</label>
+                    <select id="saleOrRent" name="sale-type" required>
+                      <option value="" disabled selected>Select Sale Type</option>
+                      <option value="sale">Sale</option>
+                      <option value="rent">Rent</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" placeholder="address ex: city/town/steet" required>
+                    <select id="city" name="" required>
+                      <option value="" selected disabled>choose city</option>
+                      <option value="Jerusalem">Jerusalem</option>
+                      <option value="Haifa">Haifa</option>
+                      <option value="Jericho">Jericho</option>
+                      <option value="Ramallah">Ramallah</option>
+                      <option value="Hebron">Hebron</option>
+                      <option value="Eilat">Eilat</option>
+                      <option value="Nablus">Nablus</option>
+                      <option value="Jenin">Jenin</option>
+                      <option value="Ashdod">Ashdod</option>
+                      <option value="Tulkarm">Tulkarm</option>
+                      <option value="Qalqilya">Qalqilya</option>
+                      <option value="Rafah">Rafah</option>
+                      <option value="Khan-Yunis">Khan Yunis</option>
+                      <option value="Deir-al-Balah">Deir al-Balah</option>
+                      <option value="Tubas">Tubas</option>
+                      <option value="Ramla">Ramla</option>
+                      <option value="Lod">Lod</option>
+                      <option value="Netanya">Netanya</option>
+                      <option value="Petah-Tikva">Petah Tikva</option>
+                      <option value="Holon">Holon</option>
+                      <option value="Bat-Yam">Bat Yam</option>
+                      <option value="Nazareth">Nazareth</option>
+                      <option value="Bethlehem">Bethlehem</option>
+                      <option value="Khan Yunis">Khan Yunis</option>
+                      <option value="Rafah">Rafah</option>
+                      <option value="Beit-Sahour">Beit Sahour</option>
+                      <option value="Beit-Jala">Beit Jala</option>
+                      <option value="Salfit">Salfit</option>
+                      
+
+                    </select>
+                  
+                  </div>
+                  <div class="form-group">
+                    <label for="realEstateType">Type:</label>
+                    <select id="realEstateType" name="real-estate-type" required>
+                      <option value="" disabled selected>Select Real Estate Type</option>
+                      <option value="house">House</option>
+                      <option value="apartment">Apartment</option>
+                      <option value="villa">Villa</option>
+                      <option value="condo">Condo</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="area">Area:</label>
+                    <input type="number" id="area" name="area" required placeholder="area by meters">
+                  </div>
+                  <div class="form-group">
+                    <label for="bedrooms">Bedrooms:</label>
+                    <input type="number" id="bedrooms" name="bedrooms" min="1" max="50" required placeholder="Number of bedrooms">
+                  </div>
+                  <div class="form-group">
+                    <label for="bathrooms">Bathrooms:</label>
+                    <input type="number" id="bathrooms" name="bathrooms" min="1" max="50" required  placeholder="Number of bathrooms">
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Real Estate Price:</label>
+                    <input type="number" id="price" name="price" required  placeholder="price by Dolor $">
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description"  name="description" rows="5" required placeholder="write more information"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Submit" class="btn-submit">
+                  </div>
+                </form>
+            </div>
+        </div>
+      
+         <!-- add property form end -->
+              <br><br>
+
+       
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+
+$("#addProperty").submit(function (event) {
+   event.preventDefault();
+   let realEstate = {
+   name: $("#name").val(),
+   saleOrRent: $("#saleOrRent").val(),
+   realEstateType: $("#realEstateType").val(),
+   bathrooms : $("#bathrooms").val(),
+   bedrooms : $("#bedrooms").val(),
+   city : $("#city").val(),
+   price : $("#price").val(),
+   area : $("#area").val(),
+   description : $("#description").val(),
+   availability : true,
+   userId:localStorage.getItem("id"),
+   address: $("#address").val()
+
+};
+
+  $.ajax({
+   type: "POST",
+   url: "/realEstate/addRealEstate",
+   contentType: "application/json",
+   data: JSON.stringify(realEstate),
+   success: function () {
+   alert("property saved successfully!");
+   window.location.href="propertiesList.html";
+},
+   error: function (error) {
+   alert("Error saving property: ", error);
+}
+});
+});
+    </script>
+</body>
+
+</html>

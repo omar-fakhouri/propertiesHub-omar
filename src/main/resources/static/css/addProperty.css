@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: grid;
+    gap: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  
+
+
+
+
+
+
+
+
+    .container {
+        width: 600px;;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: #939efe solid 1px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        color: #013445;
+    }
+    input[type="text"],    input[type="number"], #description,
+    select {
+      background-color: #eff0f9;
+        width: 90%;
+        margin: 0 5%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #4a508c;
+        box-sizing: border-box;
+        font-size: 16px;
+        margin-bottom: 7px;
+    }
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 16px;
+        resize: none;
+    }
+    .btn-submit {
+       font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        color: #013445;
+        width: 100%;
+        padding: 10px;
+        background-color: rgb(155, 250, 218); /* Light Sky Blue */
+        border: solid 1px #939efe;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .btn-submit:hover {
+        background-color: #fff; /* Cornflower Blue */
+    }

@@ -1,0 +1,94 @@
+body {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(ba1.png);
+    background-size:cover;
+}
+
+
+.box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    width: 40%;
+}
+
+.icon {
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+
+
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-left: 0px;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-size: large;
+}
+
+.create-account ,.myname{
+    display: block;
+    margin-top: 10px;
+    color:#3498db;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 400;
+}
+
+.submit-btn {
+    background-color: #6ec0f6;
+    color: #fff;
+    padding: 12px 50px;
+    border: 1px inset rgb(28, 28, 63);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size:medium;
+}
+.input-group label{
+float: left;
+font-size: 22px;
+margin: 10px 0px;
+font-weight: bold;
+display: block;
+
+}
+.login-word{
+    font-weight: bolder;
+    margin-bottom: 0%;
+    display: inline;
+    margin-top: 100px;
+
+}
+.title{
+margin: 50px 0;
+font-weight: bolder;
+text-align: center;
+font-size: 45px;
+font-family: serif;
+color: #001f3f;
+}
+label{
+display:block}
