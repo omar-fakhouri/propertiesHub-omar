@@ -11,6 +11,7 @@
                 type: "Get",
                 url: "/realEstate/getById/"+localStorage.getItem("real-estate"),
                 success: function (realEstate) {
+                  document.getElementById("mainImage").src = realEstate.mainImage;
                  document.getElementById("price").innerText = realEstate.price+"$";
                  document.getElementById("saleOrRent").innerText = "for "+realEstate.saleOrRent;
                  document.getElementById("realEstateType").innerText = realEstate.realEstateType;
@@ -33,6 +34,11 @@
                              document.getElementById("phoneNumber-pu").innerText = user.phoneNumber;
                              document.getElementById("userName-pu").innerText = user.userName;
                              document.getElementById("email-pu").innerText = user.email;
+                             if(user.profileImage==null){
+                              document.getElementById("profileImage").src = 'https://drive.google.com/file/d/1IK7XX6qLswVpZTsBAwn1NNl3P6YY40pN/preview';    
+                          }else{
+                              document.getElementById("profileImage").src = user.profileImage;
+                          }
                              var userID=user.id;
                              $.ajax({
                               type: "Get",

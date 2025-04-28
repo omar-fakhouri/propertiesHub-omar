@@ -19,9 +19,10 @@ public class realEstateServices {
 
     public realEstate addRealEstate(realEstate r) {
         if (r.getName()==null || r.getCity()==null ||r.getSaleOrRent()==null ||r.getRealEstateType()==null /* ||r.getDescription()==null*/)
-            return repository.save(new realEstate( r.getId() ,0, "no","no", "no",0, 0, "no", "no", "no",0, false, 0, "no"));
+            return repository.save(new realEstate( r.getId() ,0, "null","null", "null",0, 0, "null", "null", "null",0, false, 0, "null","null", new ArrayList<>()));
         else
-          return repository.save(r);
+            return repository.save(r);
+
     }
 
 
@@ -32,7 +33,6 @@ public class realEstateServices {
         for (int i = 0; i < myList.size(); i++) {
             // note: if (-1 --> any)for int   ,   if ("any" --> any)for string
             if ((myList.get(i).getCity().equals(city) || city.equals("any")) && (myList.get(i).getSaleOrRent().equals(saleOrRent) || saleOrRent.equals("any")) && (myList.get(i).getRealEstateType().equals(realEstateType) || realEstateType.equals("any")) && (myList.get(i).getPrice() <= maxPrize || maxPrize == -1) && (myList.get(i).getPrice() >= minPrize || minPrize == -1) && myList.get(i).isAvailability()) {
-                // اذا اخترت خرفة النوم +5 يعطيك العقار الي غرف النوم 5 واكثر
                 if (((myList.get(i).getBedrooms() == bedRooms || bedRooms == -1 || (myList.get(i).getBedrooms() >= 5 && bedRooms == 5/*(5+ )*/)))){
                     result.add(myList.get(i));
                     count++;

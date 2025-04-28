@@ -43,12 +43,13 @@
                 type: "GET",
                 url: "/realEstate/checkIsActivate/" + estate.id,
                 success: function (isActivate) {
+    
                     const color = isActivate ? 'rgb(52, 152, 219)' : 'grey';
                     var row = `
                         <tr id="estate_${estate.id}" class="candidates-list" style="background-color:rgb(231, 245, 245);margin-left: 10px;border: solid 2px  rgb(176, 206, 255);border-radius: 10px;display:block">
                             <td class="title" style="margin-left:10px">
                                 <div class="thumb">
-                                    <img class="img-fluid" src="img/property-3.jpg" alt="">
+                                            <iframe src="${estate.mainImage}" class="img-fluid" style="width:200px;hight:70px;border-radius: 30px; border: 1px solid rgb(41, 168, 215)"  ></iframe>
                                 </div>
                                 <div class="candidate-list-details">
                                     <div class="candidate-list-info">
@@ -104,7 +105,7 @@
                             <tr id="estate_${estate.id}" class="candidates-list" style="background-color:rgb(231, 245, 245);margin-left: 10px;border: solid 2px  rgb(176, 206, 255);border-radius: 10px;display:block">
                                 <td class="title" style="margin-left:10px">
                                     <div class="thumb">
-                                        <img class="img-fluid" src="img/property-3.jpg" alt="">
+                                            <iframe src="${estate.mainImage}" class="img-fluid" style="width:200px;hight:70px;border-radius: 30px; border: 1px solid rgb(41, 168, 215)"  ></iframe>
                                     </div>
                                     <div class="candidate-list-details">
                                         <div class="candidate-list-info">

@@ -19,6 +19,26 @@ public class user implements Serializable {
     private String profilePic;
     private ArrayList<Long> favoritesId;
     private String  password;
+    private String  profileImage;
+
+    public user(Long id, String userName, String email, String phoneNumber, String profilePic, ArrayList<Long> favoritesId, String password, String profileImage) {
+        this.id = id;
+        this.userName = userName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.profilePic = profilePic;
+        this.favoritesId = favoritesId;
+        this.password = password;
+        this.profileImage = profileImage;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
 
     public String getUserName() {
         return userName;
@@ -36,16 +56,7 @@ public class user implements Serializable {
         this.password = password;
     }
 
-    public user(Long id, String userName, String email, String phoneNumber, String profilePic, ArrayList<Long> favoritesId, String password) {
-        this.id = id;
-        this.userName = userName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.profilePic = profilePic;
-        this.favoritesId = favoritesId;
-        this.password = password;
 
-    }
 
     public user(){}
 

@@ -8,7 +8,11 @@ $.ajax({
         document.getElementById("email").innerText = user.email;
         document.getElementById("showUserPropertiesBtn").innerText = "show "+user.userName+"'s properties";
         document.getElementById("thUserName").innerText = user.userName+"'s properties";
-
+        if(user.profileImage==null){
+            document.getElementById("profileImage").src = 'https://drive.google.com/file/d/1IK7XX6qLswVpZTsBAwn1NNl3P6YY40pN/preview';    
+        }else{
+            document.getElementById("profileImage").src = user.profileImage;
+        }
         userId=user.id;
     },
     error: function(error) {
@@ -83,7 +87,7 @@ function fillTable(data) {
                     <tr id="estate_${estate.id}" class="candidates-list" style="background-color:rgb(231, 245, 245);margin-left: 10px;border: solid 2px  rgb(176, 206, 255);border-radius: 10px;display:block">
                         <td class="title" style="margin-left:10px">
                             <div class="thumb">
-                                <img class="img-fluid" src="img/property-3.jpg" alt="">
+                              <iframe src="${estate.mainImage}" class="img-fluid" style="width:200px;hight:70px;border-radius: 30px; border: 1px solid rgb(41, 168, 215)"  ></iframe>
                             </div>
                             <div class="candidate-list-details">
                                 <div class="candidate-list-info">

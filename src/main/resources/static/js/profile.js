@@ -7,7 +7,11 @@ $.ajax({
         user = userData; // Assigning userData to the global user object
         document.getElementById("phoneNumber-pr").innerText = user.phoneNumber;
         document.getElementById("userName-pr").innerText = user.userName;
-
+        if(user.profileImage==null){
+        document.getElementById("profileImage").src = 'https://drive.google.com/file/d/1IK7XX6qLswVpZTsBAwn1NNl3P6YY40pN/preview';    
+    }else{
+        document.getElementById("profileImage").src = user.profileImage;
+    }
         var hiddenPassword = user.password.replace(/./g, '*');
         document.getElementById("password-pr").innerText = hiddenPassword;
 

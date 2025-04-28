@@ -27,7 +27,6 @@ public class realEstateController {
     @GetMapping("/realEstate/search/{city}/{saleOrRent}/{realEstateType}/{bedRooms}/{minPrice}/{maxPrice}")
     public Optional<ArrayList<realEstate>> searchRealEstate(@PathVariable String city, @PathVariable String saleOrRent, @PathVariable String realEstateType, @PathVariable int bedRooms,@PathVariable int minPrice, @PathVariable int maxPrice) {
         return realEstateServices.searchRealEstate(city, saleOrRent, realEstateType, bedRooms, minPrice, maxPrice);
-
     }
     @GetMapping("/realEstate/searchById/{id}")
     public @ResponseBody  ArrayList<realEstate> searchById(@PathVariable long id){

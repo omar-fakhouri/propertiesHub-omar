@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>PropertiesHub - real Estate store</title>
+    <title>Prime Estates - real Estate store</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -35,8 +35,9 @@
 </head>
 
 <body>
-    <div style="background: linear-gradient(to bottom, #cfdfff 650px, #ffffff);height:100vh;width:100%;display: flex;align-items: center;">
-
+    <div style="position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0; overflow: hidden;">
+        <div style="background-image: url(img/qwew.png); background-size: cover; background-position: center; filter: blur(15px); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
+        
 
 <div class="container" id="container">
     <div class="form-container sign-up-container">
@@ -63,6 +64,7 @@
             <input type="password" placeholder="Password" id="password" minlength="7" maxlength="25">
             <input type="password" placeholder="Confirm password" id="passwordC" >
             <input type="number" placeholder="phoneNumber" id="phoneNumber" minlength="5" maxlength="15">
+            <input type="text" placeholder="profile image link (optional)" id="profileImage" minlength="1" maxlength="200">
             <button>SignUp</button>
         </form>
     </div>
@@ -86,6 +88,17 @@
 </div>
 </div>
 <script>
+    function convertDriveUrl(url) {
+    const match = url.match(/\/d\/([a-zA-Z0-9_-]+)\//);
+    if (match && match[1]) {
+        const fileId = match[1];
+        const embedLink = `https://drive.google.com/file/d/${fileId}/preview`;
+        return embedLink;
+    } else {
+        return url;
+    }
+}
+
     localStorage.removeItem("id");
    $("#signUpForm").submit(function (event) {
   event.preventDefault();
@@ -95,6 +108,7 @@
   email: $("#email").val(),
   phoneNumber: $("#phoneNumber").val(),
   password : $("#password").val(),
+   profileImage : convertDriveUrl($("#profileImage").val())
   //realEstateCount:0
 };
   $.ajax({

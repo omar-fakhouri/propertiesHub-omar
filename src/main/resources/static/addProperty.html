@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PropertiesHub - real Estate store</title>
+    <title>Prime Estates - real Estate store</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -52,7 +52,7 @@
                     <div class="icon p-2 me-2">
                       <img class="img-fluid" src="img/qwe.png" alt="Icon" style="width: 40px; height: 40px;">
                     </div>
-                    <h1 class="m-0 text-primary">PropertiesHub</h1>
+                    <h1 class="m-0 text-primary">PrimeEstates</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -183,6 +183,10 @@
                     ></textarea>
                   </div>
                   <div class="form-group">
+                    <label for="price">Real Estate main picture:</label>
+                    <input type="url" id="main-picture" name="main-picture" required  placeholder="the drive URL for the picture">
+                  </div>
+                  <div class="form-group">
                     <input type="submit" value="Submit" class="btn-submit">
                   </div>
                 </form>
@@ -212,39 +216,55 @@
 
     <script>
 
-$("#addProperty").submit(function (event) {
-   event.preventDefault();
-   let realEstate = {
-   name: $("#name").val(),
-   saleOrRent: $("#saleOrRent").val(),
-   realEstateType: $("#realEstateType").val(),
-   bathrooms : $("#bathrooms").val(),
-   bedrooms : $("#bedrooms").val(),
-   city : $("#city").val(),
-   price : $("#price").val(),
-   area : $("#area").val(),
-   description : $("#description").val(),
-   availability : true,
-   userId:localStorage.getItem("id"),
-   address: $("#address").val()
-
-};
-
-  $.ajax({
-   type: "POST",
-   url: "/realEstate/addRealEstate",
-   contentType: "application/json",
-   data: JSON.stringify(realEstate),
-   success: function () {
-   alert("property saved successfully!");
-   window.location.href="propertiesList.html";
-},
-   error: function (error) {
-   alert("Error saving property: ", error);
+function convertDriveUrl(url) {
+    const match = url.match(/\/d\/([a-zA-Z0-9_-]+)\//);
+    if (match && match[1]) {
+        const fileId = match[1];
+        const embedLink = `https://drive.google.com/file/d/${fileId}/preview`;
+        return embedLink;
+    } else {
+        return url;
+    }
 }
-});
-});
-    </script>
+  
+      $("#addProperty").submit(function (event) {
+          event.preventDefault();
+  
+          // Convert main image URL
+          const mainImageUrl = convertDriveUrl($("#main-picture").val());
+  
+          let realEstate = {
+              name: $("#name").val(),
+              saleOrRent: $("#saleOrRent").val(),
+              realEstateType: $("#realEstateType").val(),
+              bathrooms: $("#bathrooms").val(),
+              bedrooms: $("#bedrooms").val(),
+              city: $("#city").val(),
+              price: $("#price").val(),
+              area: $("#area").val(),
+              description: $("#description").val(),
+              availability: true,
+              userId: localStorage.getItem("id"),
+              address: $("#address").val(),
+              mainImage: mainImageUrl // Use the converted URL
+          };
+  
+          $.ajax({
+              type: "POST",
+              url: "/realEstate/addRealEstate",
+              contentType: "application/json",
+              data: JSON.stringify(realEstate),
+              success: function () {
+                  alert("Property saved successfully!");
+                  window.location.href = "propertiesList.html";
+              },
+              error: function (error) {
+                  alert("Error saving property: ", error);
+              }
+          });
+      });
+  </script>
+  
 </body>
 
 </html>

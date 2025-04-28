@@ -28,8 +28,11 @@ public class realEstate {
         private boolean availability;
         private int area;
         private String description;
+        private String mainImage;
+         private ArrayList<String> images;
 
-    public realEstate(Long id, long userId, String name, String saleOrRent, String realEstateType, int bathrooms, int bedrooms, String country, String city, String address, int price, boolean availability, int area, String description) {
+
+    public realEstate(Long id, long userId, String name, String saleOrRent, String realEstateType, int bathrooms, int bedrooms, String country, String city, String address, int price, boolean availability, int area, String description, String mainImage, ArrayList<String> images) {
         this.id = id;
         this.userId = userId;
         this.name = name;
@@ -44,7 +47,10 @@ public class realEstate {
         this.availability = availability;
         this.area = area;
         this.description = description;
+        this.mainImage = mainImage;
+        this.images = images;
     }
+
     public realEstate(){}
 
     public Long getId() {
@@ -157,6 +163,41 @@ public class realEstate {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getMainImage() {
+        return mainImage;
+    }
+
+    public void setMainImage(String mainImage) {
+        this.mainImage = mainImage;
+    }
+    public ArrayList<String> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
+    }
+    @Override
+    public String toString() {
+        return "realEstate{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", saleOrRent='" + saleOrRent + '\'' +
+                ", realEstateType='" + realEstateType + '\'' +
+                ", bathrooms=" + bathrooms +
+                ", bedrooms=" + bedrooms +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", address='" + address + '\'' +
+                ", price=" + price +
+                ", availability=" + availability +
+                ", area=" + area +
+                ", description='" + description + '\'' +
+                ", mainImage='" + mainImage + '\'' +
+                '}';
     }
 }
 

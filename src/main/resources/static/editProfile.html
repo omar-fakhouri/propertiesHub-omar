@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PropertiesHub - real Estate store</title>
+    <title>Prime Estates - real Estate store</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +52,7 @@
                 <div class="icon p-2 me-2">
                     <img class="img-fluid" src="img/qwe.png" alt="Icon" style="width: 40px; height: 40px;">
                 </div>
-                <h1 class="m-0 text-primary">PropertiesHub</h1>
+                <h1 class="m-0 text-primary">PrimeEstates</h1>
             </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -151,6 +152,14 @@
                                                 <input type="text" class="form-control" id="password-ed">
                                             </div>
                                         </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">profileImage</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input type="text" class="form-control" id="profileImage-ed">
+                                                </div>
+                                            </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="submit" class="btn btn-primary px-4" value="Save Changes">
                                         </div>
@@ -170,44 +179,60 @@
 
     <!--profile end-->
     <script>
-        $.ajax({
-        type: "Get",
-        url: "/users/findUserId/"+localStorage.getItem("id"),
-        success: function (user) {
-         document.getElementById("phoneNumber-ed").value = user.phoneNumber;
-         document.getElementById("userName-ed").value = user.userName;
-         document.getElementById("password-ed").value = user.password;
-         document.getElementById("email-ed").value = user.email;
-        },
-        error: function (error) {
-            console.log("Error finding your account", error);
-        }
-    });
-        function logout(){
-        localStorage.clear();
-          window.location.href="../index.html";
-        }
+        function convertDriveUrl(url) {
+  const match = url.match(/\/d\/([a-zA-Z0-9_-]+)\//);
+  if (match && match[1]) {
+      const fileId = match[1];
+      const embedLink = `https://drive.google.com/file/d/${fileId}/preview`;
+      return embedLink;
+  } else {
+      return url;
+  }
+}
+
+
+      $.ajax({
+      type: "Get",
+      url: "/users/findUserId/"+localStorage.getItem("id"),
+      success: function (user) {
+       document.getElementById("phoneNumber-ed").value = user.phoneNumber;
+       document.getElementById("userName-ed").value = user.userName;
+       document.getElementById("password-ed").value = user.password;
+       document.getElementById("email-ed").value = user.email;
+       document.getElementById("profileImage-ed").value = user.profileImage;
+
+
+      },
+      error: function (error) {
+          console.log("Error finding your account", error);
+      }
+  });
+      function logout(){
+      localStorage.clear();
+        window.location.href="../index.html";
+      }
 
 
 
 
 $("#editProfile").submit(function (event) {
-   event.preventDefault();
-   userName= $("#userName-ed").val();
-   email= $("#email-ed").val();
-   phoneNumber= $("#phoneNumber-ed").val();
-   password = $("#password-ed").val();
+ event.preventDefault();
+ userName= $("#userName-ed").val();
+ email= $("#email-ed").val();
+ phoneNumber= $("#phoneNumber-ed").val();
+ password = $("#password-ed").val();
+ profileImage = $("#profileImage-ed").val();
 
-   $.ajax({
-   type: "PUT",
-   url: "/users/editUser/"+localStorage.getItem("id")+"/"+userName+"/"+email+"/"+phoneNumber+"/"+password,
-   contentType: "application/json",
-   success: function () {
-   alert("Profile edited successfully!");
-     window.location.href="profile.html";
+ $.ajax({
+ type: "PUT",
+ url: "/users/editUser/"+localStorage.getItem("id")+"/"+userName+"/"+email+"/"+phoneNumber+"/"+password,
+ contentType: "application/json",
+ success: function () {
+ alert("Profile edited successfully!");
+   window.location.href="profile.html";
 },
-   error: function (error) {
-   alert("Error editing your profile: ", error);
+ error: function (error) {
+ alert("Error editing your profile: ", error);
 }
 });
 });
